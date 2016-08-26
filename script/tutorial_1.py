@@ -38,10 +38,11 @@ ps.addPathOptimizer ("RandomShortcut")
 # print ps.solve ()
 
 ## Uncomment this to connect to a viewer server and play solution paths
-# 
-# r = vf.createViewer()
-# from hpp.gepetto import PathPlayer
-# pp = PathPlayer (robot.client, vf)
+"""
+r = vf.createViewer()
+from hpp.gepetto import PathPlayer
+pp = PathPlayer (robot.client, r)
 
-# pp (0)
-# pp (1)
+pp (0)
+pp (1)
+"""

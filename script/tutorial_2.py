@@ -1,6 +1,8 @@
 from hpp.corbaserver.pr2 import Robot
+from math import pi
+
 robot = Robot ('pr2')
-robot.setJointBounds ("base_joint_xy", [-4, -3, -5, -3])
+robot.setJointBounds ("root_joint", [-4, -3, -5, -3,-pi,pi])
 
 from hpp.corbaserver import ProblemSolver
 ps = ProblemSolver (robot)
@@ -36,9 +38,12 @@ ps.addPathOptimizer ("RandomShortcut")
 
 print ps.solve ()
 
-# from hpp.gepetto import PathPlayer
-# r = vf.createViewer()
-# pp = PathPlayer (robot.client, r)
+## Uncomment this to connect to a viewer server and play solution paths
+"""
+r = vf.createViewer()
+from hpp.gepetto import PathPlayer
+pp = PathPlayer (robot.client, r)
 
-# pp (0)
-# pp (1)
+pp (0)
+pp (1)
+"""
